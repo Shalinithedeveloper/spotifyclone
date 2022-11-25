@@ -6,19 +6,20 @@ let audioElement = new Audio(`songs/1.mp3`);
 let masterPlay = document.getElementById('masterPlay');
 let myProgressBar = document.getElementById('myProgressBar');
 let gif = document.getElementById('gif');
+let Mastersongname = document.getElementById('Mastersongname');
 let songItems = Array.from(document.getElementsByClassName('songItem'));
 
 let songs = [
     { songName: "Kesariya", filePath: "songs/1.mp3", coverPath: "covers/1.jpg" },
-    { songName: "Salam-e-Ishq", filePath: "songs/2.mp3", coverPath: "covers/2.jpg" },
-    { songName: "Salam-e-Ishq", filePath: "songs/3.mp3", coverPath: "covers/3.jpg" },
-    { songName: "Salam-e-Ishq", filePath: "songs/4.mp3", coverPath: "covers/4.jpg" },
-    { songName: "Salam-e-Ishq", filePath: "songs/5.mp3", coverPath: "covers/5.jpg" },
-    { songName: "Salam-e-Ishq", filePath: "songs/6.mp3", coverPath: "covers/6.jpg" },
-    { songName: "Salam-e-Ishq", filePath: "songs/7.mp3", coverPath: "covers/7.jpg" },
-    { songName: "Salam-e-Ishq", filePath: "songs/8.mp3", coverPath: "covers/8.jpg" },
-    { songName: "Salam-e-Ishq", filePath: "songs/9.mp3", coverPath: "covers/9.jpg" },
-    { songName: "Salam-e-Ishq", filePath: "songs/10.mp3", coverPath: "covers/10.jpg" },
+    { songName: "Manike", filePath: "songs/2.mp3", coverPath: "covers/2.jpg" },
+    { songName: "Let Me Down Slowly * Main Dhoondne ko", filePath: "songs/3.mp3", coverPath: "covers/3.jpg" },
+    { songName: "Pasoori", filePath: "songs/4.mp3", coverPath: "covers/4.jpg" },
+    { songName: "Rang Saari Gulabi", filePath: "songs/5.mp3", coverPath: "covers/5.jpg" },
+    { songName: "Pee Loon", filePath: "songs/6.mp3", coverPath: "covers/6.jpg" },
+    { songName: "Tum Jo Aaye", filePath: "songs/7.mp3", coverPath: "covers/7.jpg" },
+    { songName: "Tum Ankhon Se Batana", filePath: "songs/8.mp3", coverPath: "covers/8.jpg" },
+    { songName: "Kaali Kaali Zulfon ke", filePath: "songs/9.mp3", coverPath: "covers/9.jpg" },
+    { songName: "Ankhon Mein Teri(LOfi)", filePath: "songs/10.mp3", coverPath: "covers/10.jpg" },
 ]
 
 songItems.forEach((element, i) => {
@@ -69,6 +70,7 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) =>
         e.target.classList.add('fa-pause-circle');
         audioElement.src = `songs/${songIndex+1}.mp3`;
         audioElement.play();
+        Mastersongname.innerText = songs[songIndex].songName;
         audioElement.currentTime = 0;
         masterPlay.classList.remove('fa-play-circle');
         masterPlay.classList.add('fa-pause-circle');
@@ -84,6 +86,7 @@ document.getElementById('next').addEventListener('click', ()=>{
         songIndex += 1;
     }
     audioElement.src = `songs/${songIndex+1}.mp3`;
+        Mastersongname.innerText = songs[songIndex].songName;
         audioElement.play();
         audioElement.currentTime = 0;
         masterPlay.classList.remove('fa-play-circle');
@@ -99,6 +102,7 @@ document.getElementById('previous').addEventListener('click', ()=>{
         songIndex -= 1;
     }
     audioElement.src = `songs/${songIndex+1}.mp3`;
+        Mastersongname.innerText = songs[songIndex].songName;
         audioElement.play();
         audioElement.currentTime = 0;
         masterPlay.classList.remove('fa-play-circle');
